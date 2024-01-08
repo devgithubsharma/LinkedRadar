@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "Linked Radar",
+    "version": "1.0",
+    "host_permissions": [
+      "<all_urls>"
+  ],
+  
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting"  
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type":"module"
+      },
+    "content_scripts": [
+      {
+        "run_at": "document_end",
+        "matches": ["https://www.linkedin.com/*"],
+        "js": ["content.js"],
+        "type": "module"
+        
+      }
+    ],
+    
+    "action": {
+      "default_popup": "popup.html"
+      
+    }
+  }
+  
